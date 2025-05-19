@@ -1,0 +1,52 @@
+from flask import Flask, render_template_string
+
+app = Flask(__name__)
+
+@app.route('/')
+def hello():
+    return render_template_string('''
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <title>Hello World App</title>
+            <style>
+                body {
+                    margin: 0;
+                    padding: 0;
+                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    background: linear-gradient(to right, #00b4db, #0083b0);
+                    color: #fff;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100vh;
+                    text-align: center;
+                }
+                .container {
+                    background-color: rgba(0, 0, 0, 0.4);
+                    padding: 40px;
+                    border-radius: 16px;
+                    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+                }
+                h1 {
+                    font-size: 3rem;
+                    margin-bottom: 10px;
+                }
+                p {
+                    font-size: 1.2rem;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h1>Hello, World! 🌍</h1>
+                <p>Welcome to your beautiful Flask web app!</p>
+            </div>
+        </body>
+        </html>
+    ''')
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
